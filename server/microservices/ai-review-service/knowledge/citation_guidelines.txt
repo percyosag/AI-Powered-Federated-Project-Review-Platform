@@ -1,0 +1,1 @@
+A grounded AI review should cite the internal knowledge used during evaluation. Citations should clearly identify the source document and ideally the retrieved chunk or section. A review with unsupported claims or missing citations should be treated as less reliable. Reflection steps should preserve valid citations and revise or remove unsupported ones.

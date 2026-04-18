@@ -1,0 +1,1 @@
+All user input should be validated before processing. Validation should check required fields, expected formats, and acceptable sizes. Missing or malformed input should return safe error messages. AI-generated output should also be validated against an explicit schema before it is stored or rendered.

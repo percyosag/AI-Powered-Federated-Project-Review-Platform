@@ -1,0 +1,1 @@
+Mongoose models should use clear schemas and timestamps when history matters. Related records should reference parent entities consistently. Services should own their own collections and avoid writing directly into another service's domain objects without a clear contract. Query results should be checked carefully before use to avoid null access errors.

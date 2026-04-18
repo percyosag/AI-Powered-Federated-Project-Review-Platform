@@ -1,0 +1,1 @@
+In a microservices architecture, each service should own its own data and logic. The auth service owns user identity and session-related concerns. The projects service owns projects, features, and drafts. The AI review service should own review generation, review persistence, and review metadata without taking over responsibilities from other services.

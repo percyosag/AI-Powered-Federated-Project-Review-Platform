@@ -1,0 +1,1 @@
+Protected operations must verify that a user is logged in before allowing access. Session-based authentication with HTTP-only cookies helps reduce client-side token exposure. Sensitive actions should also verify ownership or role-based permissions. Backend code should not trust client-provided user identifiers when the authenticated session already provides identity context.

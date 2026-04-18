@@ -33,6 +33,7 @@ const typeDefs = `#graphql
     project(id: ID!): Project
     featureRequests(projectId: ID!): [FeatureRequest]
     draftsByFeature(featureId: ID!): [Draft]
+    draft(id: ID!): Draft
   }
 
   extend type Mutation {
