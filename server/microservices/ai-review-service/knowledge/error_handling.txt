@@ -1,0 +1,1 @@
+Error handling should be safe and predictable. Backend services should log internal errors for developers while returning minimal safe messages to clients. User-facing responses should avoid exposing secrets, stack traces, or database internals. Fallback behavior is preferable to crashing the service when probabilistic AI output is malformed.

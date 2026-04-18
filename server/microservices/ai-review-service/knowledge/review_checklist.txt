@@ -1,0 +1,1 @@
+A high-quality implementation review should check validation, authentication, authorization, schema clarity, resolver design, error handling, maintainability, and architecture alignment. Review results should summarize the draft, identify issues, suggest improvements, and indicate confidence based on the available evidence.

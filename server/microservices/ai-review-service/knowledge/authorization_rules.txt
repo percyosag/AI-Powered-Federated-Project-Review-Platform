@@ -1,0 +1,1 @@
+Authorization is separate from authentication. A valid session confirms who the user is, but authorization determines whether that user can access a specific project, feature request, or draft. Ownership checks should be enforced on backend operations that read or modify user-specific records.

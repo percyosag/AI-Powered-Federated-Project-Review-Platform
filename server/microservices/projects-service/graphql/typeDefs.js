@@ -6,7 +6,6 @@ const typeDefs = `#graphql
     owner: String!
     createdAt: String
     updatedAt: String
-    
   }
 
   type FeatureRequest {
@@ -34,6 +33,7 @@ const typeDefs = `#graphql
     project(id: ID!): Project
     featureRequests(projectId: ID!): [FeatureRequest]
     draftsByFeature(featureId: ID!): [Draft]
+    draft(id: ID!): Draft
   }
 
   extend type Mutation {
@@ -54,9 +54,6 @@ const typeDefs = `#graphql
       content: String!
       version: Int
     ): Draft
-
-    deleteProject(id: ID!): Boolean
-    
   }
 `;
 

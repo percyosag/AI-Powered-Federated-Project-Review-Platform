@@ -48,6 +48,24 @@ class CookieForwardingDataSource extends RemoteGraphQLDataSource {
   }
 }
 
+// const gateway = new ApolloGateway({
+//   supergraphSdl: new IntrospectAndCompose({
+//     subgraphs: [
+//       {
+//         name: "auth",
+//         url: `http://localhost:${process.env.AUTH_PORT || 4001}/graphql`,
+//       },
+//       {
+//         name: "projects",
+//         url: `http://localhost:${process.env.PROJECTS_PORT || 4002}/graphql`,
+//       },
+//     ],
+//   }),
+//   buildService({ url }) {
+//     return new CookieForwardingDataSource({ url });
+//   },
+// });
+
 const gateway = new ApolloGateway({
   supergraphSdl: new IntrospectAndCompose({
     subgraphs: [
@@ -59,13 +77,16 @@ const gateway = new ApolloGateway({
         name: "projects",
         url: `http://localhost:${process.env.PROJECTS_PORT || 4002}/graphql`,
       },
+      {
+        name: "aiReview",
+        url: `http://localhost:${process.env.AI_REVIEW_PORT || 5003}/graphql`,
+      },
     ],
   }),
   buildService({ url }) {
     return new CookieForwardingDataSource({ url });
   },
 });
-
 const server = new ApolloServer({
   gateway,
   introspection: true,
