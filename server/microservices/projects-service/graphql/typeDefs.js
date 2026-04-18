@@ -6,6 +6,7 @@ const typeDefs = `#graphql
     owner: String!
     createdAt: String
     updatedAt: String
+    
   }
 
   type FeatureRequest {
@@ -53,6 +54,9 @@ const typeDefs = `#graphql
       content: String!
       version: Int
     ): Draft
+
+    deleteProject(id: ID!): Boolean
+    
   }
 `;
 

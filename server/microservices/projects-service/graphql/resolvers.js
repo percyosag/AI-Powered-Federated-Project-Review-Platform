@@ -74,7 +74,11 @@
 //       return project;
 //     },
 
-//     addFeatureRequest: async (_, { projectId, title, description, status }, { requireAuth, user },) => {
+//     addFeatureRequest: async (
+//       _,
+//       { projectId, title, description, status },
+//       { requireAuth, user },
+//     ) => {
 //       requireAuth();
 
 //       const project = await Project.findById(projectId);
@@ -101,7 +105,11 @@
 //       return featureRequest;
 //     },
 
-//     submitDraft: async (_, { featureId, content, version }, { requireAuth, user },) => {
+//     submitDraft: async (
+//       _,
+//       { featureId, content, version },
+//       { requireAuth, user },
+//     ) => {
 //       requireAuth();
 
 //       const feature = await FeatureRequest.findById(featureId);
@@ -274,6 +282,22 @@ const resolvers = {
 
       await featureRequest.save();
       return toFeatureResponse(featureRequest);
+    },
+    deleteProject: async (_, { id }, { requireAuth, user }) => {
+      requireAuth();
+
+      const project = await Project.findById(id);
+      if (!project) {
+        throw new Error("Project not found");
+      }
+
+      if (project.owner !== user.id) {
+        throw new Error("Access denied");
+      }
+
+      await Project.findByIdAndDelete(id);
+
+      return true;
     },
 
     submitDraft: async (

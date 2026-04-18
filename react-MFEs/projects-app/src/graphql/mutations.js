@@ -13,6 +13,11 @@ export const CREATE_PROJECT_MUTATION = gql`
   }
 `;
 
+export const DELETE_PROJECT_MUTATION = gql`
+  mutation DeleteProject($id: ID!) {
+    deleteProject(id: $id)
+  }
+`;
 export const ADD_FEATURE_REQUEST_MUTATION = gql`
   mutation AddFeatureRequest(
     $projectId: ID!
