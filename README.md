@@ -205,7 +205,7 @@ This design treats AI output as probabilistic and validates the response structu
 
 ### Draft History Workflow
 
-![Draft History Workflow](docs/screenshots/05-draft-submission.png)
+![Draft History Workflow](docs/screenshots/05-draft-history.png)
 
 ### AI Review Page
 
