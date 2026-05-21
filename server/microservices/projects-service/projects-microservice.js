@@ -89,6 +89,6 @@ app.use(
   }),
 );
 
-app.listen(PORT, () => {
-  console.log(`🔐 Projects service running on port ${PORT}`);
+app.listen(config.port, () => {
+  console.log(`🔐 Projects service running on port ${config.port}`);
 });
