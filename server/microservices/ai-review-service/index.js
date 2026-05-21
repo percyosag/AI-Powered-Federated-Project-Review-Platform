@@ -12,13 +12,9 @@ import typeDefs from "./graphql/typeDefs.js";
 import resolvers from "./graphql/resolvers.js";
 
 const app = express();
-
-app.use(express.json());
-app.use(cookieParser());
-
-app.use(
-  cors({
-    origin: [
+const allowedOrigins = process.env.CLIENT_ORIGINS
+  ? process.env.CLIENT_ORIGINS.split(",").map((origin) => origin.trim())
+  : [
       "http://localhost:3000",
       "http://localhost:3001",
       "http://localhost:3002",
@@ -26,7 +22,14 @@ app.use(
       "http://localhost:5174",
       "http://localhost:5175",
       "http://localhost:4000",
-    ],
+    ];
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: allowedOrigins,
     credentials: true,
   }),
 );
@@ -64,9 +67,7 @@ async function startServer() {
   });
 
   app.listen(config.port, () => {
-    console.log(
-      `🤖 AI Review GraphQL running at http://localhost:${config.port}/graphql`,
-    );
+    console.log(`🤖 AI Review GraphQL running on port ${config.port}`);
   });
 }
 
