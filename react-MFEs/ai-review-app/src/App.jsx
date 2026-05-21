@@ -13,6 +13,9 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+const GRAPHQL_URL =
+  import.meta.env.VITE_GRAPHQL_URL || "http://localhost:4000/graphql";
+
 function severityVariant(severity) {
   switch ((severity || "").toLowerCase()) {
     case "high":
@@ -37,7 +40,7 @@ function App() {
   const [selectedDraft, setSelectedDraft] = useState(null);
 
   const fetchGraphQL = async (query, variables = {}) => {
-    const response = await fetch("http://localhost:4000/graphql", {
+    const response = await fetch(GRAPHQL_URL, {
       method: "POST",
       credentials: "include",
       headers: {

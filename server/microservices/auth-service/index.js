@@ -70,5 +70,5 @@ app.use(
 );
 
 app.listen(PORT, () => {
-  console.log(`Auth service running at http://localhost:${PORT}/graphql`);
+  console.log(`🤖 Auth GraphQL running on port ${config.port}`);
 });
