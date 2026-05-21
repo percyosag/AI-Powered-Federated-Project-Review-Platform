@@ -90,7 +90,5 @@ app.use(
 );
 
 app.listen(config.port, () => {
-  console.log(
-    `📁 Projects Microservice running at http://localhost:${config.port}/graphql`,
-  );
+  console.log(`🔐 Projects service running on port ${PORT}`);
 });

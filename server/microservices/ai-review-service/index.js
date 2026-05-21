@@ -67,7 +67,7 @@ async function startServer() {
   });
 
   app.listen(config.port, () => {
-    console.log(`🤖 AI Review GraphQL running on port ${config.port}`);
+    console.log(`🤖 AI Review GraphQL running on port ${PORT}`);
   });
 }
 
