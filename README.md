@@ -185,6 +185,38 @@ This design treats AI output as probabilistic and validates the response structu
 
 ---
 
+## Screenshots
+
+### Authentication Page
+
+![Authentication Page](docs/screenshots/01-auth-page.png)
+
+### Projects Dashboard
+
+![Projects Dashboard](docs/screenshots/02-projects-dashboard.png)
+
+### Selected Project View
+
+![Selected Project View](docs/screenshots/03-project-selected.png)
+
+### Draft Submission Workflow
+
+![Draft Submission Workflow](docs/screenshots/04-draft-submission.png)
+
+### Draft History Workflow
+
+![Draft Submission Workflow](docs/screenshots/05-draft-submission.png)
+
+### AI Review Page
+
+![AI Review Page](docs/screenshots/06-ai-review-page.png)
+
+### AI Review Result
+
+![AI Review Result](docs/screenshots/07-ai-review-result.png)
+
+---
+
 ## Demo Workflow
 
 A typical user workflow in the application is:
