@@ -1,184 +1,150 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.ai-review-app {
+  min-height: 100vh;
+  padding: 1.25rem;
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.16),
+      transparent 30rem
+    ),
+    linear-gradient(180deg, #020617 0%, #0f172a 100%);
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+.ai-review-app > .card,
+.ai-review-app .card.shadow-sm {
+  background: rgba(15, 23, 42, 0.88) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  border-radius: 1.25rem;
+  color: #e5e7eb;
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28) !important;
+  backdrop-filter: blur(18px);
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+.ai-review-app .card-body {
+  background: transparent;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.ai-review-app h1,
+.ai-review-app h2,
+.ai-review-app h3,
+.ai-review-app h4,
+.ai-review-app h5,
+.ai-review-app h6 {
+  color: #f8fafc;
+  font-weight: 800;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.ai-review-app h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -0.04em;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+.ai-review-app p,
+.ai-review-app .text-muted,
+.ai-review-app .small.text-muted {
+  color: #94a3b8 !important;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.ai-review-app strong {
+  color: #e5e7eb;
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+.ai-review-app .form-label {
+  color: #e5e7eb;
+  font-weight: 700;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.ai-review-app .form-control {
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: #f8fafc;
+  border-radius: 0.7rem;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+.ai-review-app .form-control::placeholder {
+  color: #64748b;
+}
+
+.ai-review-app .form-control:focus {
+  background-color: rgba(15, 23, 42, 0.95);
+  border-color: #38bdf8;
+  color: #f8fafc;
+  box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.18);
+}
+
+.ai-review-app .btn-primary,
+.ai-review-app button[type="submit"] {
+  border: 0;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  font-weight: 700;
+}
+
+.ai-review-app .btn-primary:hover,
+.ai-review-app button[type="submit"]:hover {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7);
+}
+
+.ai-review-app .btn-outline-primary {
+  border-color: rgba(56, 189, 248, 0.65);
+  color: #7dd3fc;
+  border-radius: 0.7rem;
+  font-weight: 700;
+}
+
+.ai-review-app .btn-outline-primary:hover {
+  background: rgba(14, 165, 233, 0.16);
+  border-color: #38bdf8;
+  color: #e0f2fe;
+}
+
+.ai-review-app .btn-outline-secondary {
+  border-color: rgba(148, 163, 184, 0.45);
+  color: #cbd5e1;
+  border-radius: 0.7rem;
+  font-weight: 700;
+}
+
+.ai-review-app .btn-outline-secondary:hover {
+  background: rgba(148, 163, 184, 0.14);
+  border-color: #cbd5e1;
+  color: #f8fafc;
+}
+
+.ai-review-app .bg-light {
+  background: rgba(30, 41, 59, 0.78) !important;
+  color: #e5e7eb !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  border-radius: 1rem;
+}
+
+.ai-review-app .badge.bg-primary {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9) !important;
+}
+
+.ai-review-app .badge.bg-secondary {
+  background: rgba(56, 189, 248, 0.16) !important;
+  color: #bae6fd !important;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+}
+
+.ai-review-app .badge.bg-dark {
+  background: rgba(2, 6, 23, 0.75) !important;
+  color: #e5e7eb !important;
+}
+
+.ai-review-app .alert {
+  border-radius: 0.9rem;
+}
+
+.ai-review-app ul {
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .ai-review-app {
+    padding: 0.75rem;
   }
 }

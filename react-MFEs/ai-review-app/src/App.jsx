@@ -11,6 +11,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function severityVariant(severity) {
   switch ((severity || "").toLowerCase()) {
@@ -252,7 +253,7 @@ function App() {
   };
 
   return (
-    <Container className="py-4">
+    <Container fluid className="ai-review-app px-0">
       <Card className="shadow-sm mb-4">
         <Card.Body>
           <h1 className="mb-3">AI Review App</h1>

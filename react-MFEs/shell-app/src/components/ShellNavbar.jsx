@@ -10,7 +10,7 @@ function ShellNavbar({
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4 border-bottom">
       <Container>
-        <Navbar.Brand>DevPilot 2026</Navbar.Brand>
+        <Navbar.Brand>Federated Review Platform</Navbar.Brand>
 
         <Nav className="me-auto">
           <Nav.Link
