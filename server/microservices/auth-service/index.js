@@ -15,7 +15,11 @@ import { resolvers } from "./graphql/resolvers.js";
 import User from "./models/user.js";
 
 const app = express();
-const PORT = process.env.AUTH_PORT || 4001;
+const allowedOrigins = process.env.CLIENT_ORIGINS
+  ? process.env.CLIENT_ORIGINS.split(",").map((origin) => origin.trim())
+  : ["http://localhost:5173", "http://localhost:4000"];
+
+const PORT = process.env.PORT || process.env.AUTH_PORT || 4001;
 
 await connectDB();
 
@@ -33,7 +37,7 @@ await server.start();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:4000"],
+    origin: allowedOrigins,
     credentials: true,
   }),
 );

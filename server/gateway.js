@@ -10,6 +10,17 @@ import {
   RemoteGraphQLDataSource,
 } from "@apollo/gateway";
 
+const allowedOrigins = process.env.CLIENT_ORIGINS
+  ? process.env.CLIENT_ORIGINS.split(",").map((origin) => origin.trim())
+  : [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:3002",
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+      "http://localhost:4000",
+    ];
 const app = express();
 
 app.use(express.json());
@@ -17,17 +28,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000", // 🚨 ADDED: Shell App
-      "http://localhost:3001", // ADDED: Projects App (just in case)
-      "http://localhost:3002", // ADDED: AI Review App (just in case)
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:5175",
-      "http://localhost:4001",
-      "http://localhost:4002",
-      "http://localhost:4000",
-    ],
+    origin: allowedOrigins,
     credentials: true,
   }),
 );
@@ -48,38 +49,26 @@ class CookieForwardingDataSource extends RemoteGraphQLDataSource {
   }
 }
 
-// const gateway = new ApolloGateway({
-//   supergraphSdl: new IntrospectAndCompose({
-//     subgraphs: [
-//       {
-//         name: "auth",
-//         url: `http://localhost:${process.env.AUTH_PORT || 4001}/graphql`,
-//       },
-//       {
-//         name: "projects",
-//         url: `http://localhost:${process.env.PROJECTS_PORT || 4002}/graphql`,
-//       },
-//     ],
-//   }),
-//   buildService({ url }) {
-//     return new CookieForwardingDataSource({ url });
-//   },
-// });
-
 const gateway = new ApolloGateway({
   supergraphSdl: new IntrospectAndCompose({
     subgraphs: [
       {
         name: "auth",
-        url: `http://localhost:${process.env.AUTH_PORT || 4001}/graphql`,
+        url:
+          process.env.AUTH_SERVICE_URL ||
+          `http://localhost:${process.env.AUTH_PORT || 4001}/graphql`,
       },
       {
         name: "projects",
-        url: `http://localhost:${process.env.PROJECTS_PORT || 4002}/graphql`,
+        url:
+          process.env.PROJECTS_SERVICE_URL ||
+          `http://localhost:${process.env.PROJECTS_PORT || 4002}/graphql`,
       },
       {
         name: "aiReview",
-        url: `http://localhost:${process.env.AI_REVIEW_PORT || 5003}/graphql`,
+        url:
+          process.env.AI_REVIEW_SERVICE_URL ||
+          `http://localhost:${process.env.AI_REVIEW_PORT || 5003}/graphql`,
       },
     ],
   }),
