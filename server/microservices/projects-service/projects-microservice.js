@@ -18,9 +18,16 @@ connectDB();
 
 const app = express();
 
+const allowedOrigins = process.env.CLIENT_ORIGINS
+  ? process.env.CLIENT_ORIGINS.split(",").map((origin) => origin.trim())
+  : ["http://localhost:5173", "http://localhost:4000"];
+
+const authServiceUrl =
+  process.env.AUTH_SERVICE_URL || "http://localhost:4001/graphql";
+
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:4000"],
+    origin: allowedOrigins,
     credentials: true,
   }),
 );
@@ -42,7 +49,7 @@ app.use(
       let user = null;
 
       try {
-        const res = await fetch("http://localhost:4001/graphql", {
+        const res = await fetch(authServiceUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
